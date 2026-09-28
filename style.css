@@ -1,4 +1,4 @@
-/* Mobile First: базовые правила предназначены для смартфонов. */
+/* Задание 4: Bootstrap 4 + Mobile First. Отступы задаются Bootstrap-классами. */
 * {
   box-sizing: border-box;
 }
@@ -8,38 +8,24 @@ html {
 }
 
 body {
-  margin: 0;
   font-family: Arial, Helvetica, sans-serif;
   line-height: 1.55;
   color: #1f2937;
   background: #f6f8fb;
 }
 
-.container {
-  width: 100%;
-  margin: 0 auto;
-  padding-left: 16px;
-  padding-right: 16px;
+#site-header,
+#site-footer {
+  background: #dceaf7;
+  border-color: #b5ccdf;
 }
 
-/* Шапка занимает всю ширину экрана. */
 #site-header {
-  width: 100%;
-  background: #dceaf7;
   border-bottom: 1px solid #b5ccdf;
 }
 
-.header-inner {
-  min-height: 110px;
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  padding-top: 14px;
-  padding-bottom: 14px;
-}
-
-.logo-link {
-  flex: 0 0 auto;
+#site-footer {
+  border-top: 1px solid #b5ccdf;
 }
 
 .site-logo {
@@ -50,32 +36,19 @@ body {
 }
 
 h1 {
-  margin: 0;
   color: #163a59;
-  font-size: 21px;
+  font-size: 1.35rem;
   line-height: 1.25;
 }
 
-/* На смартфоне ссылки главного меню расположены вертикально. */
 #main-menu {
-  width: 100%;
   background: #174f7c;
 }
 
-.nav-inner {
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  padding-top: 8px;
-  padding-bottom: 8px;
-}
-
 #main-menu a {
-  display: block;
-  padding: 10px 12px;
   color: #fff;
   text-decoration: none;
-  border-radius: 6px;
+  border-radius: 0.25rem;
 }
 
 #main-menu a:hover,
@@ -84,42 +57,15 @@ h1 {
   text-decoration: underline;
 }
 
-/* Flexbox-контейнер основного содержимого. */
-main.container {
-  padding-top: 18px;
-  padding-bottom: 24px;
-}
-
-.main-content {
-  display: flex;
-  flex-direction: column;
-}
-
 .content-section {
-  width: 100%;
-  margin-bottom: 20px;
-  padding: 16px;
   background: #fff;
   border: 1px solid #dce3ea;
-  border-radius: 10px;
-}
-
-/* В HTML ссылки идут раньше таблицы, но на смартфоне таблица показывается первой. */
-#table {
-  order: 1;
-}
-
-#links {
-  order: 2;
-}
-
-#form {
-  order: 3;
+  border-radius: 0.625rem;
 }
 
 h2 {
-  margin-top: 0;
   color: #174f7c;
+  font-size: 1.75rem;
 }
 
 a {
@@ -127,16 +73,7 @@ a {
 }
 
 .links-list {
-  padding-left: 22px;
   overflow-wrap: anywhere;
-}
-
-.links-list > li {
-  margin-bottom: 9px;
-}
-
-.links-list p {
-  margin: 5px 0 10px;
 }
 
 .link-image {
@@ -144,7 +81,6 @@ a {
   width: 100px;
   height: 100px;
   object-fit: contain;
-  margin-top: 8px;
 }
 
 .map-image {
@@ -153,31 +89,21 @@ a {
   height: 300px;
   max-width: 100%;
   object-fit: contain;
-  margin-top: 10px;
-}
-
-.table-wrapper {
-  width: 100%;
-  overflow-x: auto;
 }
 
 .data-table {
-  width: 100%;
   min-width: 650px;
-  border-collapse: collapse;
 }
 
 .data-table th,
 .data-table td {
-  border: 1px solid #9eb4c7;
-  padding: 10px 12px;
-  text-align: left;
   vertical-align: middle;
 }
 
-.data-table th {
+.data-table thead th {
   color: #fff;
   background: #267eb7;
+  border-color: #9eb4c7;
 }
 
 .data-table tbody tr:nth-child(odd) {
@@ -193,145 +119,43 @@ form {
   max-width: 620px;
 }
 
-.form-group {
-  margin-bottom: 18px;
+.form-control {
+  color: #1f2937;
+  border-color: #9aa9b6;
 }
 
-.form-group > label {
-  display: block;
-  margin-bottom: 6px;
-  font-weight: 600;
-}
-
-input[type="text"],
-input[type="tel"],
-input[type="email"],
-input[type="date"],
-select,
-textarea {
-  width: 100%;
-  padding: 9px 10px;
-  font: inherit;
-  color: inherit;
-  background: #fff;
-  border: 1px solid #9aa9b6;
-  border-radius: 5px;
-}
-
-select {
+select.form-control {
   min-height: 220px;
 }
 
-textarea {
+textarea.form-control {
   resize: vertical;
 }
 
 fieldset {
-  margin: 0 0 18px;
-  padding: 12px 15px 15px;
   border: 1px solid #9aa9b6;
-  border-radius: 5px;
+  border-radius: 0.25rem;
 }
 
-.choice {
-  display: block;
-  margin-top: 7px;
-}
-
-.contract {
-  display: block;
-  margin: 0 0 18px;
-}
-
-button {
-  padding: 10px 20px;
-  font: inherit;
-  color: #fff;
+.btn-primary {
   background: #174f7c;
-  border: 0;
-  border-radius: 5px;
-  cursor: pointer;
+  border-color: #174f7c;
 }
 
-button:hover,
-button:focus {
+.btn-primary:hover,
+.btn-primary:focus {
   background: #0f3d63;
+  border-color: #0f3d63;
 }
 
-#site-footer {
-  width: 100%;
-  background: #dceaf7;
-  border-top: 1px solid #b5ccdf;
-}
-
-.footer-inner {
-  min-height: 80px;
-  display: flex;
-  align-items: center;
-  font-weight: 600;
-}
-
-/* Планшеты и десктопы: правила подключаются после мобильных (Mobile First). */
-@media screen and (min-width: 800px) {
-  .container {
-    max-width: 960px;
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-
-  .header-inner {
-    min-height: 140px;
-    gap: 24px;
-  }
-
+/* Mobile First: увеличение элементов только для экранов md и шире. */
+@media (min-width: 768px) {
   .site-logo {
     width: 100px;
     height: 100px;
   }
 
   h1 {
-    font-size: 30px;
-  }
-
-  .nav-inner {
-    min-height: 54px;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    padding-top: 0;
-    padding-bottom: 0;
-  }
-
-  #main-menu a {
-    display: inline-block;
-    padding: 9px 15px;
-  }
-
-  main.container {
-    padding-top: 28px;
-    padding-bottom: 36px;
-  }
-
-  .content-section {
-    margin-bottom: 34px;
-    padding: 26px;
-  }
-
-  /* На планшетах и десктопах возвращается порядок предыдущего задания. */
-  #links {
-    order: 1;
-  }
-
-  #table {
-    order: 2;
-  }
-
-  #form {
-    order: 3;
-  }
-
-  .footer-inner {
-    min-height: 90px;
+    font-size: 1.875rem;
   }
 }
