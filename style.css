@@ -1,3 +1,4 @@
+/* Mobile First: базовые правила предназначены для смартфонов. */
 * {
   box-sizing: border-box;
 }
@@ -16,29 +17,62 @@ body {
 
 .container {
   width: 100%;
-  max-width: 960px;
   margin: 0 auto;
-  padding-left: 20px;
-  padding-right: 20px;
+  padding-left: 16px;
+  padding-right: 16px;
 }
 
+/* Шапка занимает всю ширину экрана. */
+#site-header {
+  width: 100%;
+  background: #dceaf7;
+  border-bottom: 1px solid #b5ccdf;
+}
+
+.header-inner {
+  min-height: 110px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding-top: 14px;
+  padding-bottom: 14px;
+}
+
+.logo-link {
+  flex: 0 0 auto;
+}
+
+.site-logo {
+  display: block;
+  width: 82px;
+  height: 82px;
+  object-fit: contain;
+}
+
+h1 {
+  margin: 0;
+  color: #163a59;
+  font-size: 21px;
+  line-height: 1.25;
+}
+
+/* На смартфоне ссылки главного меню расположены вертикально. */
 #main-menu {
   width: 100%;
   background: #174f7c;
 }
 
 .nav-inner {
-  min-height: 54px;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: stretch;
+  padding-top: 8px;
+  padding-bottom: 8px;
 }
 
 #main-menu a {
-  display: inline-block;
-  padding: 9px 15px;
+  display: block;
+  padding: 10px 12px;
   color: #fff;
   text-decoration: none;
   border-radius: 6px;
@@ -50,47 +84,37 @@ body {
   text-decoration: underline;
 }
 
-#site-header {
-  width: 100%;
-  background: #dceaf7;
-  border-bottom: 1px solid #b5ccdf;
-}
-
-.header-inner {
-  min-height: 140px;
-  display: flex;
-  align-items: center;
-  gap: 24px;
-}
-
-.logo-link {
-  flex: 0 0 auto;
-}
-
-.site-logo {
-  display: block;
-  width: 100px;
-  height: 100px;
-  object-fit: contain;
-}
-
-h1 {
-  margin: 0;
-  color: #163a59;
-  font-size: 30px;
-}
-
+/* Flexbox-контейнер основного содержимого. */
 main.container {
-  padding-top: 28px;
-  padding-bottom: 36px;
+  padding-top: 18px;
+  padding-bottom: 24px;
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column;
 }
 
 .content-section {
-  margin-bottom: 34px;
-  padding: 26px;
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 16px;
   background: #fff;
   border: 1px solid #dce3ea;
   border-radius: 10px;
+}
+
+/* В HTML ссылки идут раньше таблицы, но на смартфоне таблица показывается первой. */
+#table {
+  order: 1;
+}
+
+#links {
+  order: 2;
+}
+
+#form {
+  order: 3;
 }
 
 h2 {
@@ -103,7 +127,8 @@ a {
 }
 
 .links-list {
-  padding-left: 24px;
+  padding-left: 22px;
+  overflow-wrap: anywhere;
 }
 
 .links-list > li {
@@ -132,19 +157,20 @@ a {
 }
 
 .table-wrapper {
+  width: 100%;
   overflow-x: auto;
 }
 
 .data-table {
   width: 100%;
-  border-collapse: collapse;
   min-width: 650px;
+  border-collapse: collapse;
 }
 
 .data-table th,
 .data-table td {
   border: 1px solid #9eb4c7;
-  padding: 12px 14px;
+  padding: 10px 12px;
   text-align: left;
   vertical-align: middle;
 }
@@ -163,6 +189,7 @@ a {
 }
 
 form {
+  width: 100%;
   max-width: 620px;
 }
 
@@ -238,31 +265,73 @@ button:focus {
 }
 
 .footer-inner {
-  min-height: 90px;
+  min-height: 80px;
   display: flex;
   align-items: center;
   font-weight: 600;
 }
 
-@media (max-width: 640px) {
+/* Планшеты и десктопы: правила подключаются после мобильных (Mobile First). */
+@media screen and (min-width: 800px) {
+  .container {
+    max-width: 960px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
   .header-inner {
-    min-height: 0;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    flex-direction: column;
-    text-align: center;
+    min-height: 140px;
+    gap: 24px;
+  }
+
+  .site-logo {
+    width: 100px;
+    height: 100px;
   }
 
   h1 {
-    font-size: 24px;
+    font-size: 30px;
+  }
+
+  .nav-inner {
+    min-height: 54px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  #main-menu a {
+    display: inline-block;
+    padding: 9px 15px;
+  }
+
+  main.container {
+    padding-top: 28px;
+    padding-bottom: 36px;
   }
 
   .content-section {
-    padding: 18px;
+    margin-bottom: 34px;
+    padding: 26px;
   }
 
-  .map-image {
-    width: 300px;
-    height: 300px;
+  /* На планшетах и десктопах возвращается порядок предыдущего задания. */
+  #links {
+    order: 1;
+  }
+
+  #table {
+    order: 2;
+  }
+
+  #form {
+    order: 3;
+  }
+
+  .footer-inner {
+    min-height: 90px;
   }
 }
